@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Calculator</title>
+	<style type="text/css">
+		body {
+			background-color: black;
+		}
+
+		.box {
+			height: 270px;
+			width: 250px;
+			position: relative;
+			top: 60px;
+			left: 40%;		
+			background-color: orange;
+			padding: 10px;	
+			text-align: center;
+			border-radius: 10px;
+		}
+
+		.display #result {
+			width: 230px; 
+			border-radius: 5px;
+			background-color: gray;
+		}
+
+		.keys input {
+			background-color: black;
+			color: white;
+			width: 57.5px;
+			height: 45.5px;
+		}
+
+		
+	</style>
+</head>
+<body>
+	<h2 style="color: white; text-align: center; margin-top: 30px;">My Calculator</h2>
+	<div class="box">
+
+		<div class="display">
+			<input type="text" readonly size="16" id="result">
+		</div>
+		<div class="keys">
+			<p>
+				<input type="button" class="button black seven" value="7" onclick="TakeValue('7')">
+				<input type="button" class="button black eight" value="8" onclick="TakeValue('8')">
+				<input type="button" class="button black nine" value="9" onclick="TakeValue('9')">
+				<input type="button" class="button yellow multiply" value="*" onclick="TakeValue('*')">
+			</p>
+			<p>
+				<input type="button" class="button black" value="4" onclick="TakeValue('4')">
+				<input type="button" class="button black" value="5" onclick="TakeValue('5')">
+				<input type="button" class="button black" value="6" onclick="TakeValue('6')">
+				<input type="button" class="button yellow" value="-" onclick="TakeValue('-')">
+			</p>
+			<p>
+				<input type="button" class="button black" value="1" onclick="TakeValue('1')">
+				<input type="button" class="button black" value="2" onclick="TakeValue('2')">
+				<input type="button" class="button black" value="3" onclick="TakeValue('3')">
+				<input type="button" class="button yellow" value="+" onclick="TakeValue('+')">
+			</p>
+			<p>
+				<input type="button" class="button black" value="0" onclick="TakeValue('0')">
+				<input type="button" class="button black" value="C" onclick="ClearValue('')">
+				<input type="button" class="button orange" value="=" onclick="CalculateValue()">
+				<input type="button" class="button yellow" value="/" onclick="TakeValue('/')">
+			</p>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		function TakeValue(val) {
+			document.getElementById('result').value += val;
+		}
+
+		function CalculateValue() {
+			document.getElementById("result").value = eval(document.getElementById("result").value);
+		}
+
+		function ClearValue(val) {
+			document.getElementById("result").value = val;
+		}
+	</script>
+</body>
+</html>
